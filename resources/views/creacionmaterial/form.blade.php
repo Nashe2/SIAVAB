@@ -1,9 +1,9 @@
 {!! Form::open (['url' => '/creacionmaterial','class' => 'app.form']) !!}
 
 	<div>
-		{!! Form::label('date','Fecha de asignación') !!}
+		{!! Form::label('fecha','Fecha de asignación') !!}
 		<br>
-		{!! Form::text('date','',['class' => 'form_control']) !!}
+		{!! Form::date('fecha','',['class' => 'form_control']) !!}
 	</div>
 	<br>
 

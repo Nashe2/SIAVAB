@@ -25,13 +25,12 @@ Route::resource('color', 'ColorController');
 Route::resource('artesano', 'ArtesanoController');
 Route::resource('creacionmaterial', 'CreacionmaterialController');
 Route::resource('compra', 'CompraController');
-Route::resource('promocion', 'PromocionController');
-Route::resource('usuarios', 'UsuarioController');
-Route::resource('ejemplo', 'EjemploController');
-Route::resource('venta', 'VentaController');
 Route::resource('detallescompra', 'DetallescompraController');
 Route::resource('usomaterial', 'UsomaterialController');
-Route::resource('carrito', 'CarritoController');
 Route::resource('produccion', 'ProduccionController');
+Route::resource('hilo', 'HiloController');
+Route::resource("in_shopping_carts","ProductoInShoppingCartsController",["only" => ["store","destroy"]]);
+
+Route::get('/carrito','ShoppingCartController@show')->name('shopping_cart.show');
 
 Route::get('/home', 'HomeController@index')->name('home');

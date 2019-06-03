@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\color;
 
 class ColorController extends Controller
 {
@@ -24,7 +25,8 @@ class ColorController extends Controller
     public function create()
     {
         //
-        return view('color.create');
+        $color = new Color;
+        return view('color.create', ["color" => $color]);
     }
 
     /**
@@ -36,6 +38,16 @@ class ColorController extends Controller
     public function store(Request $request)
     {
         //
+        $options=[
+            'rgb'=>$request->rgb,
+            'descripcion'=>$request->descripcion,
+        ];
+
+        if(color::create($options)){
+            return redirect('/');
+        }else{
+            return view('color.create');
+        }
     }
 
     /**

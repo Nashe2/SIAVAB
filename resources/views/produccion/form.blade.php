@@ -1,23 +1,23 @@
 {!! Form::open (['url' => '/produccion','class' => 'app.form']) !!}
 
 	<div>
-		{!! Form::label('datecrea','Fecha de creacion') !!}
+		{!! Form::label('precio_fab','Precio de fabricación') !!}
 	<br>
-		{!! Form::text('datecrea','',['class' => 'form_control']) !!}
+		{!! Form::number('precio_fab','0',['class' => 'form_control']) !!}
 	</div>
 	<br>
 
 	<div>
-		{!! Form::label('pricefab','Precio de fabricación') !!}
+		{!! Form::label('fecha_ini','Fecha de inicio de creacion') !!}
 	<br>
-		{!! Form::number('pricefab','0',['class' => 'form_control']) !!}
+		{!! Form::date('fecha_ini','',['class' => 'form_control']) !!}
 	</div>
 	<br>
 
 	<div>
-		{!! Form::label('timecrea','Tiempo de producción') !!}
+		{!! Form::label('fecha_ter','Fecha de termino producción') !!}
 	<br>
-		{!! Form::number('timecrea','0',['class' => 'form_control']) !!}
+		{!! Form::date('fecha_ter','',['class' => 'form_control']) !!}
 	</div>
 	<br>
 

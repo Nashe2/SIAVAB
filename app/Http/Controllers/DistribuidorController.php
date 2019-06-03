@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\distribuidor;
 
 class DistribuidorController extends Controller
 {
@@ -24,7 +25,8 @@ class DistribuidorController extends Controller
     public function create()
     {
         //
-        return view('distribuidor.create');
+        $distribuidor = new Distribuidor;
+        return view('distribuidor.create', ["distribuidor" => $distribuidor]);
     }
 
     /**
@@ -36,6 +38,23 @@ class DistribuidorController extends Controller
     public function store(Request $request)
     {
         //
+
+        // Create relation between Distribuidor and Compra.
+        $distribuidor->compras()->saveMany([
+        ]);
+        // Or use the save() function for single model.
+        $distribuidor->compra()->save($compra);
+        //
+
+         $options=[
+            'giro_emp'=>$request->giro_emp,
+        ];
+
+        if(distribuidor::create($options)){
+            return redirect('/');
+        }else{
+            return view('distribuidor.create');
+        }
     }
 
     /**

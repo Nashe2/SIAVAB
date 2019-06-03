@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\detallescompra;
 
 class DetallescompraController extends Controller
 {
@@ -24,7 +25,8 @@ class DetallescompraController extends Controller
     public function create()
     {
         //
-         return view ('detallescompra.create');
+        $detallescompra = new Detallescompra;
+        return view('detallescompra.create', ["detallescompra" => $detallescompra]);
     }
 
     /**
@@ -36,6 +38,15 @@ class DetallescompraController extends Controller
     public function store(Request $request)
     {
         //
+         $options=[
+            'cantidad'=>$request->cantidad,
+        ];
+
+        if(detallescompra::create($options)){
+            return redirect('/');
+        }else{
+            return view('detallescompra.create');
+        }
     }
 
     /**

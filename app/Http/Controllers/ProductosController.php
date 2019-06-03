@@ -4,17 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Producto;
+use App\Http\Resources\ProductosControllection;
 
 class ProductosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',['except' => ['index', 'show']]);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    //rutas rest de colección
+    public function index(Request $request)
     {
-        //
+
+        //vista para mostrar los productos 
+        $producto = Producto::paginate(6);
+
+
+        return view('productos.index',['productos' => $producto]);
     }
 
     /**
@@ -22,10 +33,12 @@ class ProductosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //Crear productos
     public function create()
     {
         //
-        return view('productos.create');
+        $producto = new Producto;
+        return view('productos.create', ["producto" => $producto]);
     }
 
     /**
@@ -45,7 +58,7 @@ class ProductosController extends Controller
         ];
 
         if(Producto::create($options)){
-            return redirect('/');
+            return redirect('/productos');
         }else{
             return view('productos.create');
         }
@@ -57,9 +70,12 @@ class ProductosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //rutas rest de recursos
     public function show($id)
     {
         //
+        $producto =Producto::find($id);
+        return view("productos.show",["producto" => $producto]);
     }
 
     /**
@@ -68,9 +84,12 @@ class ProductosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Editar los campos de productos//
     public function edit($id)
     {
         //
+        $producto =Producto::find($id);
+        return view("productos.edit",["producto" => $producto]);
     }
 
     /**
@@ -80,9 +99,21 @@ class ProductosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Actualizar un recurso en específico (producto)
     public function update(Request $request, $id)
     {
         //
+        $producto = Producto::find($id);
+        $producto->title = $request->title;
+        $producto->description = $request->description;
+        $producto->price = $request->price;
+        $producto->cantidad = $request->cantidad;
+
+        if($producto->save()){
+            return redirect('/');
+        }else{
+            return view("productos.edit", ["producto" => $producto]);
+        }
     }
 
     /**
@@ -91,8 +122,11 @@ class ProductosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Eliminar un producto
     public function destroy($id)
     {
         //
+        Producto::destroy($id);
+        return redirect('/productos');
     }
 }

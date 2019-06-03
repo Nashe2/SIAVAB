@@ -1,9 +1,9 @@
 {!! Form::open (['url' => '/compra','class' => 'app.form']) !!}
 
 	<div>
-		{!! Form::label('datecomp','Fecha de compra') !!}
+		{!! Form::label('fecha','Fecha de compra') !!}
 	<br>
-		{!! Form::text('datecomp','',['class' => 'form_control']) !!}
+		{!! Form::date('fecha','',['class' => 'form_control']) !!}
 	</div>
 	<br>
 

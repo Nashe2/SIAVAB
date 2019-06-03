@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\compra;
 
 class CompraController extends Controller
 {
@@ -24,7 +25,8 @@ class CompraController extends Controller
     public function create()
     {
         //
-        return view('compra.create');
+        $compra = new Compra;
+        return view('compra.create', ["compra" => $compra]);
     }
 
     /**
@@ -36,6 +38,19 @@ class CompraController extends Controller
     public function store(Request $request)
     {
         //
+        // Create relation between Compra and Distribuidor.
+        $compra->distribuidor()->associate($distribuidor)->save();
+        //
+
+        $options=[
+            'fecha'=>$request->fecha,
+        ];
+
+        if(compra::create($options)){
+            return redirect('/');
+        }else{
+            return view('compra.create');
+        }
     }
 
     /**

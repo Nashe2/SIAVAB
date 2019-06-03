@@ -1,8 +1,8 @@
 {!! Form::open (['url' => '/distribuidor','class' => 'app.form']) !!}
 	<div>
-		{!! Form::label('giro','Giro empresarial') !!}
+		{!! Form::label('giro_emp','Giro empresarial') !!}
 		<br>
-		{!! Form::text('giro','',['class' => 'form_control']) !!}
+		{!! Form::text('giro_emp','',['class' => 'form_control']) !!}
 	</div>
 	<br>
 

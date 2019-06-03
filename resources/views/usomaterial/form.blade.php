@@ -1,9 +1,9 @@
 {!! Form::open (['url' => '/usomaterial','class' => 'app.form']) !!}
 
 	<div>
-		{!! Form::label('cantidaduso','Cantidad') !!}
+		{!! Form::label('cantidad','Cantidad') !!}
 		<br>
-		{!! Form::number('cantidaduso','0',['class' => 'form_control']) !!}
+		{!! Form::number('cantidad','0',['class' => 'form_control']) !!}
 	</div>
 	<br>
 

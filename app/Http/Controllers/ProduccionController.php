@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\produccion;
 
 class ProduccionController extends Controller
 {
@@ -24,7 +25,8 @@ class ProduccionController extends Controller
     public function create()
     {
         //
-        return view('produccion.create');
+        $produccion = new Produccion;
+        return view('produccion.create', ["produccion" => $produccion]);
     }
 
     /**
@@ -36,6 +38,17 @@ class ProduccionController extends Controller
     public function store(Request $request)
     {
         //
+         $options=[
+            'precio_fab'=>$request->precio_fab,
+            'fecha_ini'=>$request->fecha_ini,
+            'fecha_ter'=>$request->fecha_ter,
+        ];
+
+        if(produccion::create($options)){
+            return redirect('/');
+        }else{
+            return view('produccion.create');
+        }
     }
 
     /**

@@ -60,6 +60,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'first.user' => \App\Http\Middleware\ValidateFirstUserSingUp::class,
+        'shopping_cart' => \App\Http\Middleware\SetShoppingCart::class,
     ];
 
     /**

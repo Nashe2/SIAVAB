@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\persona;
 
 class PersonasController extends Controller
 {
@@ -24,7 +25,8 @@ class PersonasController extends Controller
     public function create()
     {
         //
-        return view('personas.create');
+        $persona = new Persona;
+        return view('personas.create', ["persona" => $persona]);
     }
 
     /**
@@ -36,6 +38,21 @@ class PersonasController extends Controller
     public function store(Request $request)
     {
         //
+         $options=[
+            'nombre'=>$request->nombre,
+            'paterno'=>$request->paterno,
+            'materno'=>$request->materno,
+            'nacimiento'=>$request->nacimiento,
+            'telefono'=>$request->telefono,
+            'rfc'=>$request->rfc,
+            'sexo'=>$request->sexo,
+        ];
+
+        if(persona::create($options)){
+            return redirect('/');
+        }else{
+            return view('personas.create');
+        }
     }
 
     /**

@@ -1,36 +1,36 @@
 {!! Form::open (['url' => '/materiales','class' => 'app.form']) !!}
 	<div>
-		{!! Form::label('namemate','Nombre del material') !!}
+		{!! Form::label('nombre','Nombre del material') !!}
 		<br>
-		{!! Form::text('namemate','',['class' => 'form_control']) !!}
+		{!! Form::text('nombre','',['class' => 'form_control']) !!}
 	</div>
 	<br>
 
 	<div>
-		{!! Form::label('descriptionmate','Descripción del material') !!}
+		{!! Form::label('descripcion','Descripción del material') !!}
 		<br>
-		{!! Form::textarea('descriptionmate','',['class' => 'form_control']) !!}
+		{!! Form::textarea('descripcion','',['class' => 'form_control']) !!}
 	</div>
 	<br>
 
 	<div>
-		{!! Form::label('cantidadmate','Cantidad') !!}
+		{!! Form::label('cantidad','Cantidad') !!}
 		<br>
-		{!! Form::number('cantidadmate','0',['class' => 'form_control']) !!}
+		{!! Form::number('cantidad','0',['class' => 'form_control']) !!}
 	</div>
 	<br>
 
 	<div>
-		{!! Form::label('pricemate','Precio unitario') !!}
+		{!! Form::label('precio_unitario','Precio unitario') !!}
 		<br>
-		{!! Form::number('pricemate','0',['class' => 'form_control']) !!}
+		{!! Form::number('precio_unitario','0',['class' => 'form_control']) !!}
 	</div>
 	<br>
 
 	<div>
-		{!! Form::label('eshilo','Es hilo') !!}
+		{!! Form::label('es_hilo','Es hilo') !!}
 		<br>
-		{!! Form::text('eshilo','',['class' => 'form_control']) !!}
+		{!! Form::text('es_hilo','',['class' => 'form_control']) !!}
 	</div>
 	<br>
 

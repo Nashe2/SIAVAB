@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\usomaterial;
 
 class UsomaterialController extends Controller
 {
@@ -24,7 +25,8 @@ class UsomaterialController extends Controller
     public function create()
     {
         //
-        return view('usomaterial.create');
+        $usomaterial = new Usomaterial;
+        return view('usomaterial.create', ["usomaterial" => $usomaterial]);
     }
 
     /**
@@ -36,6 +38,15 @@ class UsomaterialController extends Controller
     public function store(Request $request)
     {
         //
+         $options=[
+            'cantidad'=>$request->cantidad,
+        ];
+
+        if(usomaterial::create($options)){
+            return redirect('/');
+        }else{
+            return view('usomaterial.create');
+        }
     }
 
     /**

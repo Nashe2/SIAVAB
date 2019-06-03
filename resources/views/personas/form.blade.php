@@ -1,32 +1,39 @@
 {!! Form::open (['url' => '/personas','class' => 'app.form']) !!}
 	<div>
-		{!! Form::label('name','Nombre de la persona') !!}
+		{!! Form::label('nombre','Nombre de la persona') !!}
 		<br>
-		{!! Form::text('name','',['class' => 'form_control']) !!}
+		{!! Form::text('nombre','',['class' => 'form_control']) !!}
 	</div>
 	<br>
 
 	<div>
-		{!! Form::label('lastname','Apellido paterno') !!}
+		{!! Form::label('paterno','Apellido paterno') !!}
 		<br>
-		{!! Form::text('lastname','',['class' => 'form_control']) !!}
+		{!! Form::text('paterno','',['class' => 'form_control']) !!}
 	</div>
 	<br>
 
 		<div>
-		{!! Form::label('lastnames','Apellido materno') !!}
+		{!! Form::label('materno','Apellido materno') !!}
 		<br>
-		{!! Form::text('lastnames','',['class' => 'form_control']) !!}
+		{!! Form::text('materno','',['class' => 'form_control']) !!}
 	</div>
 	<br>
 
 		<div>
-		{!! Form::label('birthday','Fecha de nacimiento') !!}
+		{!! Form::label('nacimiento','Fecha de nacimiento') !!}
 		<br>
-		{!! Form::number('birthday','0',['class' => 'form_control']) !!}
+		{!! Form::date('nacimiento','0',['class' => 'form_control']) !!}
 	</div>
 	<br>
 
+	<div>
+		{!! Form::label('telefono','Teléfono') !!}
+		<br>
+		{!! Form::text('telefono','0',['class' => 'form_control']) !!}
+	</div>
+	<br>
+	
 	<div>
 		{!! Form::label('rfc','RFC') !!}
 		<br>
@@ -35,16 +42,9 @@
 	<br>
 
 	<div>
-		{!! Form::label('phone','Teléfono') !!}
+		{!! Form::label('sexo','Sexo') !!}
 		<br>
-		{!! Form::number('phone','0',['class' => 'form_control']) !!}
-	</div>
-	<br>
-
-	<div>
-		{!! Form::label('sex','Sexo') !!}
-		<br>
-		{!! Form::text('sex','',['class' => 'form_control']) !!}
+		{!! Form::text('sexo','',['class' => 'form_control']) !!}
 	</div>
 	<br>
 

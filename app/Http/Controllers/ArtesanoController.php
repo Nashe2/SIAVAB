@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\artesano;
 
 class ArtesanoController extends Controller
 {
@@ -24,7 +25,8 @@ class ArtesanoController extends Controller
     public function create()
     {
         //
-        return view('artesano.create');
+        $artesano = new Artesano;
+        return view('artesano.create', ["artesano" => $artesano]);
     }
 
     /**
@@ -36,6 +38,16 @@ class ArtesanoController extends Controller
     public function store(Request $request)
     {
         //
+         $options=[
+            'categoria'=>$request->categoria,
+            'discapacidad'=>$request->discapacidad,
+        ];
+
+        if(artesano::create($options)){
+            return redirect('/');
+        }else{
+            return view('artesano.create');
+        }
     }
 
     /**

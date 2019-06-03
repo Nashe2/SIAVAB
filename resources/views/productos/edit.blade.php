@@ -4,11 +4,12 @@
 <div class="container">
 	<div class="card padding">
 		<header>
-			<h4>Crear nueva venta</h4>
+			<h4>Editar producto</h4>
+			<p>{{$producto->title}}</p>
 		</header>
 
 		<div class="card-body">
-			@include('venta.form')
+			@include('productos.form')
 		</div>
 	</div>
 </div>

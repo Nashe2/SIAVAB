@@ -1,15 +1,15 @@
 {!! Form::open (['url' => '/color','class' => 'app.form']) !!}
 	<div>
-		{!! Form::label('namecolor','RGB') !!}
+		{!! Form::label('rgb','RGB') !!}
 		<br>
-		{!! Form::text('namecolor','',['class' => 'form_control']) !!}
+		{!! Form::text('rgb','',['class' => 'form_control']) !!}
 	</div>
 	<br>
 
 	<div>
-		{!! Form::label('descriptioncolor','Descripción del color') !!}
+		{!! Form::label('descripcion','Descripción del color') !!}
 		<br>
-		{!! Form::textarea('descriptioncolor','',['class' => 'form_control']) !!}
+		{!! Form::textarea('descripcion','',['class' => 'form_control']) !!}
 	</div>
 	<br>
 

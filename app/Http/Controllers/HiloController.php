@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class CarritoController extends Controller
+use App\hilo;
+class HiloController extends Controller
 {
+    //
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +25,8 @@ class CarritoController extends Controller
     public function create()
     {
         //
-        return view('carrito.create');
+        $hilo = new Hilo;
+        return view('hilo.create', ["hilo" => $hilo]);
     }
 
     /**
@@ -36,6 +38,15 @@ class CarritoController extends Controller
     public function store(Request $request)
     {
         //
+         $options=[
+            'tipo'=>$request->tipo,
+        ];
+
+        if(hilo::create($options)){
+            return redirect('/');
+        }else{
+            return view('hilo.create');
+        }
     }
 
     /**

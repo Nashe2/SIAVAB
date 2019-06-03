@@ -4,11 +4,11 @@
 <div class="container">
 	<div class="card padding">
 		<header>
-			<h4>Productos en el carrito</h4>
+			<h4>Crear nuevo hilo</h4>
 		</header>
 
 		<div class="card-body">
-			@include('carrito.form')
+			@include('hilo.form')
 		</div>
 	</div>
 </div>

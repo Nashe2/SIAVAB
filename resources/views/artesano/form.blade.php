@@ -1,8 +1,8 @@
 {!! Form::open (['url' => '/artesano','class' => 'app.form']) !!}
 	<div>
-		{!! Form::label('category','Categoría') !!}
+		{!! Form::label('categoria','Categoría') !!}
 		<br>
-		{!! Form::text('category','',['class' => 'form_control']) !!}
+		{!! Form::text('categoria','',['class' => 'form_control']) !!}
 	</div>
 	<br>
 
