@@ -12,4 +12,16 @@ class Artesano extends Model
     public function creacionMaterial(){
        return $this->hasMany(CreacionMaterial::class);
     }
+
+    public $fillable=['categoria', 'discapacidad', 'persona_id'];
+
+    public function url(){
+        return $this->id ? 'artesano.update' : 'artesano.store';
+    }
+
+    //metodo que devolvera el HTTP , para actualizar es PUT y para crear POST
+
+    public function method(){
+        return $this->id ? 'PUT' : 'POST';
+    }
 }

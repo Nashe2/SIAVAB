@@ -1,4 +1,4 @@
-<template >
+<template lang="html">
 	<section>
 		<p> Mi primer componente {{ name }} </p>
 	</section>

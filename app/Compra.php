@@ -11,7 +11,7 @@ class Compra extends Model
   	    return $this->belongsTo(Distribuidor::class); 	 	
   	}
 
-    public $fillable=['fecha'];
+    public $fillable=['fecha', 'distribuidor_id'];
 
  	public function url(){
         return $this->id ? 'compra.update' : 'compra.store';

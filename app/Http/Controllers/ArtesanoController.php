@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\artesano;
+use App\persona;
+use Illuminate\Support\Facades\DB;
 
 class ArtesanoController extends Controller
 {
@@ -26,7 +28,8 @@ class ArtesanoController extends Controller
     {
         //
         $artesano = new Artesano;
-        return view('artesano.create', ["artesano" => $artesano]);
+        $personas = DB::table('personas')->get();
+        return view('artesano.create', ["artesano" => $artesano],['personas' => $personas]);
     }
 
     /**
@@ -41,6 +44,7 @@ class ArtesanoController extends Controller
          $options=[
             'categoria'=>$request->categoria,
             'discapacidad'=>$request->discapacidad,
+            'persona_id'=>$request->persona
         ];
 
         if(artesano::create($options)){

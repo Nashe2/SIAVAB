@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\compra;
+use App\distribuidor;
+use Illuminate\Support\Facades\DB;
 
 class CompraController extends Controller
 {
@@ -26,7 +28,8 @@ class CompraController extends Controller
     {
         //
         $compra = new Compra;
-        return view('compra.create', ["compra" => $compra]);
+        $distribuidors = DB::table('distribuidors')->get();
+        return view('compra.create', ["compra" => $compra],['distribuidors' => $distribuidors]);
     }
 
     /**
@@ -44,6 +47,7 @@ class CompraController extends Controller
 
         $options=[
             'fecha'=>$request->fecha,
+            'distribuidor_distribuidor_id'=>$request->distribuidor_id
         ];
 
         if(compra::create($options)){

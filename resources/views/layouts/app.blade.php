@@ -40,7 +40,8 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         <li class="nav-link">
-                            {{$productosCount}}
+                        <!--       <producto-counter-component></producto-counter-component> !-->
+                             {{$productosCount}} 
                         </li>
                         @guest
                             <li class="nav-item">
