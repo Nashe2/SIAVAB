@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\distribuidor;
+use App\persona;
+use Illuminate\Support\Facades\DB;
 
 class DistribuidorController extends Controller
 {
@@ -26,7 +28,8 @@ class DistribuidorController extends Controller
     {
         //
         $distribuidor = new Distribuidor;
-        return view('distribuidor.create', ["distribuidor" => $distribuidor]);
+        $personas = DB::table('personas')->get();
+        return view('distribuidor.create', ["distribuidor" => $distribuidor],['personas' => $personas]);
     }
 
     /**
@@ -39,15 +42,9 @@ class DistribuidorController extends Controller
     {
         //
 
-        // Create relation between Distribuidor and Compra.
-        $distribuidor->compras()->saveMany([
-        ]);
-        // Or use the save() function for single model.
-        $distribuidor->compra()->save($compra);
-        //
-
          $options=[
             'giro_emp'=>$request->giro_emp,
+            'persona_id'=>$request->persona
         ];
 
         if(distribuidor::create($options)){

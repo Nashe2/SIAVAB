@@ -13,7 +13,7 @@ class Distribuidor extends Model
        return $this->hasMany(Compra::class);
     }
 
-    public $fillable=['giro_emp'];
+    public $fillable=['giro_emp','persona_id'];
 
  	public function url(){
         return $this->id ? 'distribuidor.update' : 'distribuidor.store';
