@@ -74,6 +74,8 @@ class DistribuidorController extends Controller
     public function edit($id)
     {
         //
+        $distribuidor =Distribuidor::find($id);
+        return view("distribuidor.edit",["distribuidor" => $distribuidor]);
     }
 
     /**

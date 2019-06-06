@@ -24,7 +24,7 @@ class PersonasController extends Controller
      */
     public function create()
     {
-        //
+        //Para que pueda mostrar la vista cuando también se hayan modificado los datos
         $persona = new Persona;
         return view('personas.create', ["persona" => $persona]);
     }
@@ -74,7 +74,9 @@ class PersonasController extends Controller
      */
     public function edit($id)
     {
-        //
+        //hace la comunicacion a la base de datos y la vista que lo despliega
+        $persona =Persona::find($id);
+        return view("personas.edit",["persona" => $persona]);
     }
 
     /**
@@ -87,6 +89,20 @@ class PersonasController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $persona = Persona::find($id);
+        $persona->nombre = $request->nombre;
+        $persona->paterno = $request->paterno;
+        $persona->materno = $request->materno;
+        $persona->nacimiento = $request->nacimiento;
+        $persona->telefono = $request->telefono;
+        $persona->rfc = $request->rfc;
+        $persona->sexo = $request->sexo;
+
+        if($persona->save()){
+            return redirect('/');
+        }else{
+            return view("personas.edit", ["persona" => $persona]);
+        }
     }
 
     /**

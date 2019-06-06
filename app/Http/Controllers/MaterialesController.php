@@ -74,6 +74,8 @@ class MaterialesController extends Controller
     public function edit($id)
     {
         //
+        $material =Material::find($id);
+        return view("materiales.edit",["material" => $material]);
     }
 
     /**
@@ -86,6 +88,18 @@ class MaterialesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $material = Material::find($id);
+        $material->nombre = $request->nombre;
+        $material->descripcion = $request->descripcion;
+        $material->cantidad = $request->cantidad;
+        $material->precio_unitario = $request->precio_unitario;
+        $material->es_hilo = $request->es_hilo;
+
+        if($material->save()){
+            return redirect('/');
+        }else{
+            return view("materiales.edit", ["material" => $material]);
+        }
     }
 
     /**

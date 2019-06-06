@@ -12,12 +12,13 @@
 				<h4 class="card-subtitle">{{$producto->price}}</h4>
 				<p class="card-text">{{$producto->description}}</p>
 				<div class="card-actions">
-					<add-producto-btn :producto='{{!! json_encode($producto) !!}}'></add-producto-btn>
-					<!--Se borro en el video agregar al carrito con ajax y vue{!! Form::open(['method' => 'POST', 'url' => '/in_shopping_carts']) !!}
+					<!--<add-producto-btn :producto='{{!! json_encode($producto) !!}}'></add-producto-btn!-->
+					<!--Se borro en el video agregar al carrito con ajax y vue-->
+					{!! Form::open(['method' => 'POST', 'url' => '/in_shopping_carts']) !!}
 					<input type="hidden" name="producto_id" value="{{$producto->id}}">
 					<input type="submit" class="btn btn-success" value="Agregar al carrito">
-					{!! Form::close() !!}-->
-					<!--button type="button" name="button"class="btn btn-success">Agregar al carrito</button>!-->
+					{!! Form::close() !!}
+					<!--button type="button" name="button"class="btn btn-success">Agregar al carrito</button!-->
 					@include('productos.delete')
 				</div>
 			</div>
