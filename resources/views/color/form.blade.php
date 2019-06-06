@@ -9,7 +9,7 @@
 	<div>
 		{!! Form::label('descripcion','Descripción del color') !!}
 		<br>
-		{!! Form::textarea('descripcion','',['class' => 'form_control']) !!}
+		{!! Form::text('descripcion','',['class' => 'form_control']) !!}
 	</div>
 	<br>
 

@@ -4,12 +4,12 @@
 <div class="container">
 	<div class="card padding">
 		<header>
-			<h4>Editar material</h4>
-			<p>{{$material->nombre}}</p>
+			<h4>Editar color</h4>
+			<p>{{$color->rgb}}</p>
 		</header>
 
 		<div class="card-body">
-			@include('materiales.form')
+			@include('color.form')
 		</div>
 	</div>
 </div>

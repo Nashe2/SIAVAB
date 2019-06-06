@@ -74,6 +74,8 @@ class ArtesanoController extends Controller
     public function edit($id)
     {
         //
+        $artesano =Artesano::find($id);
+        return view("artesano.edit",["artesano" => $artesano]);
     }
 
     /**
@@ -86,6 +88,17 @@ class ArtesanoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $artesano = Artesano::find($id);
+        $artesano->categoria = $request->categoria;
+        $artesano->discapacidad = $request->discapacidad;
+        $artesano->color_id= $request->colorid;
+
+
+        if($artesano->save()){
+            return redirect('/');
+        }else{
+            return view("artesano.edit", ["artesano" => $artesano]);
+        }
     }
 
     /**

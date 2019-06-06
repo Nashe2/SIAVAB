@@ -4,12 +4,12 @@
 <div class="container">
 	<div class="card padding">
 		<header>
-			<h4>Editar material</h4>
-			<p>{{$material->nombre}}</p>
+			<h4>Editar artesano</h4>
+			<p>{{$artesano->categoria}}</p>
 		</header>
 
 		<div class="card-body">
-			@include('materiales.form')
+			@include('artesano.form')
 		</div>
 	</div>
 </div>

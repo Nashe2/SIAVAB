@@ -70,6 +70,8 @@ class ColorController extends Controller
     public function edit($id)
     {
         //
+        $color =Color::find($id);
+        return view("color.edit",["color" => $color]);
     }
 
     /**
@@ -82,6 +84,15 @@ class ColorController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $color = Color::find($id);
+        $color->rgb = $request->rgb;
+        $color->descripcion = $request->descripcion;
+
+        if($color->save()){
+            return redirect('/');
+        }else{
+            return view("color.edit", ["color" => $color]);
+        }
     }
 
     /**
