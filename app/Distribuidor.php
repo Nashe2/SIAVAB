@@ -24,4 +24,8 @@ class Distribuidor extends Model
     public function method(){
         return $this->id ? 'PUT' : 'POST';
     }
+
+    public function personas() {
+        return $this->belongsTo('App\Persona');
+    }
 }

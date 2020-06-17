@@ -19,4 +19,8 @@ class Material extends Model
     public function method(){
         return $this->id ? 'PUT' : 'POST';
     }
+
+    public function hilos(){
+        return $this->hasMany('App\Hilo');
+    }
 }

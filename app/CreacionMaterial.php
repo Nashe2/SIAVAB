@@ -8,7 +8,7 @@ class CreacionMaterial extends Model
 {
     //
     	public function artesano(){
-  	    return $this->belongsTo(Artesano::class); 	 	
+  	    return $this->belongsTo(Artesano::class);
   	}
 
   	public $fillable=['fecha', 'artesano_id'];
@@ -21,5 +21,9 @@ class CreacionMaterial extends Model
 
     public function method(){
         return $this->id ? 'PUT' : 'POST';
+    }
+
+    public function materials(){
+        return $this->belongsToMany('App\Material', 'uso_materials','creacion_id')->withPivot('cantidad')->withTimestamps();
     }
 }

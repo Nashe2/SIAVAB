@@ -20,9 +20,15 @@ class ShoppingCart extends Model
     	return $this->belongsToMany('App\Producto','producto_in_shopping_carts');
     }
 
-    //consulta de cuantos productos tiene el carrito, resultado de productos-> metodo anterior. 
+    //consulta de cuantos productos tiene el carrito, resultado de productos-> metodo anterior.
     public function productosCount(){
     	return $this->productos()->count();
+    }
+
+    public function productoss(){
+        return $this->belongsToMany('App\Producto', 'producto_in_shopping_carts', 'shopping_cart_id')
+            ->withPivot('amount')
+            ->withTimestamps();
     }
 
 }
