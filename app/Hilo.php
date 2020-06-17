@@ -18,4 +18,12 @@ class Hilo extends Model
     public function method(){
         return $this->id ? 'PUT' : 'POST';
     }
+
+    public function materials(){
+    	return $this->belongsTo('App\Material');
+    }
+
+    public function colors(){
+        return $this->belongsTo('App\Color');
+    }
 }

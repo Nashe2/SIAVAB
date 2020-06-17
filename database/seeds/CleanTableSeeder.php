@@ -17,12 +17,23 @@ class CleanTableSeeder extends Seeder
 		$tables = DB::select("SELECT * FROM information_schema.tables WHERE table_schema = '$databaseName'");
 		foreach ($tables as $table) {
 		    $name = $table->TABLE_NAME;
+
 		    //if you don't want to truncate migrations
 		    if ($name == 'migrations') {
 		        continue;
 		    }
+
+
 		    DB::table($name)->truncate();
+
+/*
+		    if($name == 'shopping_carts' || $name = 'producto_in_shopping_carts'){
+		    	DB::table($name)->truncate();
+		    }
+*/
 		}
+
 		DB::statement("SET foreign_key_checks=1");
     }
 }
+

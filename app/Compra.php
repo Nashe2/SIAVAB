@@ -8,7 +8,7 @@ class Compra extends Model
 {
     //
 	public function distribuidor(){
-  	    return $this->belongsTo(Distribuidor::class); 	 	
+  	    return $this->belongsTo(Distribuidor::class);
   	}
 
     public $fillable=['fecha', 'distribuidor_id'];
@@ -21,5 +21,11 @@ class Compra extends Model
 
     public function method(){
         return $this->id ? 'PUT' : 'POST';
+    }
+
+    public function materials(){
+        return $this->belongsToMany('App\Material', 'detalles_compras','compras_id')
+            ->withPivot('cantidad')
+            ->withTimestamps();
     }
 }

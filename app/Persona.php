@@ -18,4 +18,13 @@ class Persona extends Model
     public function method(){
         return $this->id ? 'PUT' : 'POST';
     }
+
+    public function artesanos(){
+        return $this->hasMany('App\Artesano');
+    }
+
+    public function distribuidores(){
+        return $this->hasMany('App\Distribuidor');
+    }
+
 }
