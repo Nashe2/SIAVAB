@@ -12,7 +12,7 @@ class CleanTableSeeder extends Seeder
     public function run()
     {
     	// Esto sirve para checar y agarrrar todas las tablas y las borra
-        DB::statement("SET foreign_key_checks=0");
+        //DB::statement("SET foreign_key_checks=0");
 		$databaseName = DB::getDatabaseName();
 		$tables = DB::select("SELECT * FROM information_schema.tables WHERE table_schema = '$databaseName'");
 		foreach ($tables as $table) {
@@ -33,7 +33,7 @@ class CleanTableSeeder extends Seeder
 */
 		}
 
-		DB::statement("SET foreign_key_checks=1");
+		//DB::statement("SET foreign_key_checks=1");
     }
 }
 
