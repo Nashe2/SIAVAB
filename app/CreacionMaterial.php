@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class CreacionMaterial extends Model
 {
     //
+  protected $primaryKey = 'creacion_id';
+  
     	public function artesano(){
   	    return $this->belongsTo(Artesano::class);
   	}
