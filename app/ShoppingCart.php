@@ -25,6 +25,14 @@ class ShoppingCart extends Model
     	return $this->productos()->count();
     }
 
+    public function amount(){
+        return $this->productos()->sum("price") / 100;
+    }
+
+    public function amountInCents(){
+        return $this->productos()->sum("price");
+    }
+
     public function productoss(){
         return $this->belongsToMany('App\Producto', 'producto_in_shopping_carts', 'shopping_cart_id')
             ->withPivot('amount')

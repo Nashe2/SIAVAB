@@ -35,4 +35,8 @@ Route::get('/carrito','ShoppingCartController@show')->name('shopping_cart.show')
 
 Route::get('/carrito/productos','ShoppingCartController@productos')->name('shopping_cart.productos');
 
+Route::get('/pagar/','PaymentsController@pay')->name('payments.pay');
+
+Route::get('/pagar/completar','PaymentsController@execute')->name('payments.execute');
+
 Route::get('/home', 'HomeController@index')->name('home');

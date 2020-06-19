@@ -7,17 +7,27 @@
 			<h2>Mi carrito de compras</h2>
 		</header>
 		<div class="card-body">
-			
-			
+
+
 
 			<div class="row">
 				<div class="col-12 col-md-6">
-					<!--@foreach ($shopping_cart->productos as $producto)
+
+					@php
+					$total = 0
+					@endphp
+
+					@foreach ($shopping_cart->productos as $producto)
 					<div class="">
-						<h4>{{$producto->title}} </h4>
+						<h4>{{$producto->title}} {{$producto->price}} </h4>
+						<p>Conteo: {{$total = $total + $producto->price}}</p>
 					</div>
-					@endforeach  -->
+					@endforeach
 					<productos-shopping-component></productos-shopping-component>
+				</div>
+
+				<div class="col-12 col-md-6">
+					<p> Total: {{$total}}</p>
 				</div>
 				<div class="col-12 col-md-6 payments">
 					<p>Paga facilmente con cualquiera de éstos métodos a través de Paypal.</p>
@@ -32,3 +42,4 @@
 </div>
 
 @endsection
+

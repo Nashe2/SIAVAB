@@ -23,6 +23,7 @@ class ProductosController extends Controller
     public function index(Request $request)
     {
 
+       // \session::remove('shopping_cart_id');
 
         //vista para mostrar los productos 
         $producto = Producto::paginate(6);

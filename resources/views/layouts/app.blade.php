@@ -44,7 +44,7 @@
                              
                         </li>
                         <li>
-                         <!--   {{$productosCount}} !-->
+                          {{$productosCount}} 
                         </li>
                         @guest
                             <li class="nav-item">
