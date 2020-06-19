@@ -11,6 +11,7 @@
 					</div>
 				</div>
 			</article>
+
 		  </material-transition-group>
 		  <article class="total card-producto">
 		  	<div class="row">
@@ -23,6 +24,7 @@
 		  	</div>
 		  </article>
 	</div>
+	
 </template>
 
 <script>
@@ -42,7 +44,7 @@ export default{
 				return acumulator + currentObj.numberPrice
 			},0);
 
-			return ´$${cents/100}´;
+			return `$${cents/100}`;
 		}
 	},
 	methods:{

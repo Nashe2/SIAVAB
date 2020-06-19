@@ -40,8 +40,11 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         <li class="nav-link">
-                        <!--       <producto-counter-component></producto-counter-component> !-->
-                             {{$productosCount}} 
+                              <producto-counter-component :count="{{$productosCount}}"></producto-counter-component>
+                             
+                        </li>
+                        <li>
+                         <!--   {{$productosCount}} !-->
                         </li>
                         @guest
                             <li class="nav-item">

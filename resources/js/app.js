@@ -3,9 +3,9 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-import Vue from 'vue'
-import Vuex from 'vuex'
-Vue.use(Vuex);
+//import Vue from 'vue'
+//import Vuex from 'vuex'
+//Vue.use(Vuex);
 
 require('./bootstrap');
 
@@ -15,11 +15,14 @@ const Vuex = require('vuex');
 
 window.store = new Vuex.Store({
 	state: {
-		productosCount: 0
+		productosCount: 2
 	},
 	mutations:{
 		increment(state){
 			return state.productosCount++
+		},
+		set(state,value){
+			return state.productosCount =value
 		}
 	}
 })
@@ -36,6 +39,14 @@ window.store = new Vuex.Store({
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('productos-component', require('./components/productos/ProductosComponent.vue'));
+
+//Vue.component('add-producto-btn', require('./components/productos/AddToCarComponent.vue'));
+Vue.component('producto-counter-component', require('./components/shopping_cart/CounterComponent.vue'));
+Vue.component('add-producto-btn', require('./components/productos/AddToCartComponent.vue'));
+Vue.component('productos-shopping-component', require('./components/shopping_cart/ProductosShoppingCartComponent.vue'));
+
+Vue.component('producto-card-component', require('./components/productos/ProductoCardComponent.vue'));
+Vue.component('material-transition-group', require('./components/animations/MaterialCollectionComponent.vue'));
 
 /**Vue.component('add-producto-btn', require('./components/productos/AddToCarComponent.vue'));
 Vue.component('producto-counter-component', require('./components/shopping_cart/CounterComponent.vue'));

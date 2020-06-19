@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Producto;
+use App\ShoppingCart;
+use App\Http\Resources\ProductosCollection;
 use App\Http\Resources\ProductosControllection;
 
 class ProductosController extends Controller
@@ -21,9 +23,15 @@ class ProductosController extends Controller
     public function index(Request $request)
     {
 
+
         //vista para mostrar los productos 
         $producto = Producto::paginate(6);
 
+//*
+     //   if ($request=wantsJson($producto)){
+      //      return ProductosCollection();
+        //}
+//*videos: props y v-bind, enviar json desde el servidor
 
         return view('productos.index',['productos' => $producto]);
     }
@@ -38,6 +46,7 @@ class ProductosController extends Controller
     {
         //
         $producto = new Producto;
+
         return view('productos.create', ["producto" => $producto]);
     }
 

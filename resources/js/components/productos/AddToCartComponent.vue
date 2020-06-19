@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
 	<button @click="addToCart" class="btn btn-primary">{{message}}</button>
 </template>
 
@@ -6,7 +6,7 @@
 export default{
 	data(){
 		return {
-			message: 'Agregar al carrito'.
+			message: 'Agregar al carrito',
 			endpoint: '/in_shoppinh_carts'
 		}
 	},
@@ -24,7 +24,8 @@ export default{
 					'Content-Type': 'application/json'
 				}
 			}).then(()=>{
-				console.log('Se agregó el producto');
+				window.store.commit("increment");
+				//console.log('Se agregó el producto');
 			})
 		}
 	}
