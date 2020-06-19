@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Hilo extends Model
 {
     //
+    protected $primaryKey = 'hilo_id';
+    
     public $fillable=['tipo'];
 
     public function url(){
